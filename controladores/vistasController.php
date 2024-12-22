@@ -11,7 +11,7 @@
         public function obt_vistas_controlador(){
             if(isset($_GET['views'])){
                 $ruta = explode("/",$_GET['views']);
-                $respuesta=vistaSModelo::obt_vistas_modelo($ruta[0]);
+                $respuesta=vistasModelo::obt_vistas_modelo($ruta[0]);
             }else{
                 $respuesta="login";
             }

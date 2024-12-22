@@ -7,10 +7,10 @@
     const SERVER = 'localhost';
     const DB_PORT = '5433';
     const DB_NAME = 'prestamos';
-    const USER = 'rebasedata';
-    const DB_PASSWORD = 'admin';
+    const USER = 'postgres';
+    const DB_PASSWORD = 'christian';
 
-    const SGBD = "pgsql:host=".SERVER.";port=".DB_PORT.";dbname=".DB_NAME.";user=".USER.";password=".DB_PASSWORD;
+    const SGBD = "host=".SERVER." port=".DB_PORT." dbname=".DB_NAME." user=".USER." password=".DB_PASSWORD;
 
     const METHOD = "AES-256-CBC";
     const SECRET_KEY= '$PRESTAMOS@2024';
@@ -54,7 +54,7 @@
     const C_DETALLE_COSTO_TIEMPO = 13;
     const C_DETALLE_DESCRIPCION = 14;
     const C_PRESTAMO_CODIGO = 15;
-    const C_ITEM_ID = 16;
+    // const C_ITEM_ID = 16;
 
     const T_EMPRESA = 17;
     const C_EMPRESA_ID = 18;
@@ -75,11 +75,11 @@
     const C_PAGO_ID = 31;
     const C_PAGO_TOTAL = 32;
     const C_PAGO_FECHA = 33;
-    const C_PRESTAMO_CODIGO = 34;
+    // const C_PRESTAMO_CODIGO = 34;
 
     const T_PRESTAMO = 35;
     const C_PRESTAMO_ID = 36;
-    const C_PRESTAMO_CODIGO = 37;
+    // const C_PRESTAMO_CODIGO = 37;
     const C_PRESTAMO_FECHA_INICIO = 38;
     const C_PRESTAMO_HORA_INICIO = 39;
     const C_PRESTAMO_FECHA_FINAL = 40;
@@ -89,8 +89,8 @@
     const C_PRESTAMO_PAGADO = 44;
     const C_PRESTAMO_ESTADO = 45;
     const C_PRESTAMO_OBSERVACION = 46;
-    const C_USUARIO_ID = 47;
-    const C_CLIENTE_ID = 48;
+    // const C_USUARIO_ID = 47;
+    // const C_CLIENTE_ID = 48;
 
     const T_USUARIO = 49;
     const C_USUARIO_ID = 50;
