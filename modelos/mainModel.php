@@ -7,39 +7,35 @@ if ($peticionesAjax) {
 }
 require_once "conexion.php";
 
-class mainModel extends Conexion {
+class mainModel extends conexion {
 
-    // Constructor para establecer la conexión
-    public function __construct() {
-        $this->conexion = new Conexion();  // Crear una nueva instancia de Conexion
-        $this->conexion = $this->conexion->conect();  // Obtener la conexión a PostgreSQL
-    }
+    // protected static function ejecutar_consulta($consulta){
+    //     $sql = self :: conectar()->prepare($consulta);
+    //     $sql->execute();
+    //     return $conexion;
+    // }
 
-    // Ejecutar consulta con parámetros para evitar inyección SQL
-    protected function ejecutar_consulta_con_parametro($consulta, $valores) {
-        // Verificar si la conexión es válida
-        if ($this->conexion === null) {
-            return false; // Si no hay conexión, retornar false
+    public static function ejecutar_consulta_con_parametro($consulta, $valores) {
+        $conexion = self::conectar();  
+
+        if ($conexion === null) {
+            return false; 
         }
 
-        // Ejecutar la consulta con los parámetros utilizando pg_query_params
-        $result = pg_query_params($this->conexion, $consulta, $valores);
+        $result = pg_query_params($conexion, $consulta, $valores);
 
-        // Verificar si la consulta fue exitosa
         if ($result === false) {
-            error_log("Error al ejecutar la consulta: " . pg_last_error($this->conexion));
+            error_log("Error al ejecutar la consulta: " . pg_last_error($conexion));
             return false;
         }
 
-        return $result; // Retornar el resultado de la consulta
+        return $result; 
     }
 
-    // Método para cerrar la conexión (opcional)
-    public function cerrar_conexion() {
-        pg_close($this->conexion);  // Cerrar la conexión a la base de datos
+    public static function cerrar_conexion() {
+        conexion::cerrar_conexion();
     }
 
-    // Método para limpiar cadenas
     protected static function limpiar_cadena($cadena) {
         $cadena = trim($cadena);
         $cadena = stripcslashes($cadena);
@@ -48,7 +44,7 @@ class mainModel extends Conexion {
         return $cadena;
     }
 
-    // Verificar datos con expresiones regulares
+    
     protected static function verificar_datos($filtro, $cadena) {
         if (preg_match("/^".$filtro."$/", $cadena)) {
             return false;
@@ -57,7 +53,7 @@ class mainModel extends Conexion {
         }
     }
 
-    // Verificar fecha con formato YYYY-MM-DD
+    
     protected static function verificar_fecha($fecha) {
         $valores = explode("-", $fecha);
         if(count($valores) == 3 && checkdate($valores[1], $valores[2], $valores[0])) {
@@ -67,7 +63,6 @@ class mainModel extends Conexion {
         }
     }
 
-    // Método para paginación de tablas
     protected static function paginador_tablas($pagina, $Npaginas, $url, $botones) {
         $tabla = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
 

@@ -7,7 +7,10 @@
     const SERVER = 'localhost';
     const DB_PORT = '5433';
     const DB_NAME = 'prestamos';
+    
     const USER = 'postgres';
+    // const USER = 'rebasedata';
+
     const DB_PASSWORD = 'christian';
 
     const SGBD = "host=".SERVER." port=".DB_PORT." dbname=".DB_NAME." user=".USER." password=".DB_PASSWORD;

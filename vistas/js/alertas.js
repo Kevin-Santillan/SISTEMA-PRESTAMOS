@@ -85,7 +85,7 @@ function alertas_ajax(alerta) {
             type: alerta.Tipo,
             confirmButtonText: 'Aceptar',
         }).then((result) => {
-            if (result.value) {
+            if (result.value) {                 
                 document.querySelector(".FormularioAjax").reset();
             }
         });

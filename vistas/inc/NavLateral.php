@@ -41,7 +41,7 @@
 									<a href="<?php echo SERVERURL?>item-list/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de items</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/item-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar item</a>
+									<a href="<?php echo SERVERURL?>item-search/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar item</a>
 								</li>
 							</ul>
 						</li>
@@ -50,19 +50,19 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Préstamos <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/reservation-new"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo préstamo</a>
+									<a href="<?php echo SERVERURL ?>reservation-new/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo préstamo</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/reservation-reservation"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Reservaciones</a>
+									<a href="<?php echo SERVERURL ?>reservation-reservation/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Reservaciones</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/reservation-pending"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Préstamos</a>
+									<a href="<?php echo SERVERURL ?>reservation-pending/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Préstamos</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/reservation-list"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a>
+									<a href="<?php echo SERVERURL ?>reservation-list/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/reservation-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar por fecha</a>
+									<a href="<?php echo SERVERURL ?>reservation-search/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar por fecha</a>
 								</li>
 							</ul>
 						</li>
@@ -71,19 +71,19 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/user-new"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a>
+									<a href="<?php echo SERVERURL ?>user-new/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/user-list"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+									<a href="<?php echo SERVERURL ?>user-list/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
 								</li>
 								<li>
-									<a href="<?php SERVERURL?>/prestamos/user-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+									<a href="<?php echo SERVERURL ?>user-search/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<a href="<?php SERVERURL?>/prestamos/company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Empresa</a>
+							<a href="<?php echo SERVERURL ?>company/"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Empresa</a>
 						</li>
 					</ul>
 				</nav>

@@ -6,24 +6,31 @@ if ($peticionesAjax) {
     require_once "./config/SERVER.php";
 }
 
-class Conexion {
-    private $conect;
-
-    public function __construct() {
-        try {
-            // Usar la constante SGBD que ya contiene toda la cadena de conexión
-            $this->conect = pg_connect(SGBD);
-            if (!$this->conect) {
-                throw new Exception("Error de conexión a la base de datos.");
+class conexion {
+    private static $conect = null; 
+    public static function conectar() {
+        if (self::$conect === null) {
+            try {
+                self::$conect = pg_connect(SGBD);
+                if (!self::$conect) {
+                    throw new Exception("Error de conexión a la base de datos.");
+                }
+            } catch (Exception $e) {
+                self::$conect = null;
+                error_log("ERROR: " . $e->getMessage());
+                echo "ERROR: " . $e->getMessage();
             }
-        } catch (Exception $e) {
-            $this->conect = 'Error de conexión';
-            echo "ERROR: " . $e->getMessage();
         }
+        return self::$conect;
     }
 
-    public function conect() {
-        return $this->conect;
+   
+    public static function cerrar_conexion() {
+        if (self::$conect !== null) {
+            pg_close(self::$conect); 
+            self::$conect = null; 
+        }
     }
 }
 ?>
+
