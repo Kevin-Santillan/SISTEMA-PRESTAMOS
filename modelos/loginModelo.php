@@ -14,6 +14,8 @@
                 $resultado = self::ejecutar_consulta_con_parametro($sql,$valores);
                 if ($resultado) {
                     return pg_fetch_assoc($resultado);
+                } else {
+                    return false; 
                 }
              } catch (Exception $e) {
             

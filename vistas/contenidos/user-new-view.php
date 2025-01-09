@@ -128,3 +128,35 @@
         </p>
     </form>
 </div>
+
+<!-- <script>
+    function consultarDni(dni) {
+    // Verifica que el DNI tenga 8 dígitos
+        if (dni.length === 8) {
+            // Llamada a la API
+            fetch(`https://apidni.com/api/v2/dni/${dni}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer 5325dc36374cf214c04f40dda945320d',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Autocompleta los campos de nombre y apellido
+                    document.getElementById('usuario_nombre').value = data.nombres || '';
+                    document.getElementById('usuario_apellido').value = `${data.apellido_paterno || ''} ${data.apellido_materno || ''}`.trim();
+                } else {
+                    alert('DNI no encontrado en la base de datos.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al consultar el DNI:', error);
+                alert('Ocurrió un error al consultar el DNI.');
+            });
+        } else {
+            // Opcional: Mensaje si el DNI no tiene 8 dígitos
+            console.log('DNI incompleto. Debe tener 8 dígitos.');
+        }
+    }
+</script> -->

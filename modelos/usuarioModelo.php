@@ -8,6 +8,7 @@ class usuarioModelo extends mainModel {
     
         $consulta = "INSERT INTO _usuario (usuario_dni, usuario_nombre, usuario_apellido, usuario_telefono, usuario_direccion, usuario_email, usuario_usuario, usuario_clave, usuario_estado, usuario_privilegio) 
                      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
+        
 
         $valores = [
             $data['dni'],
@@ -17,7 +18,7 @@ class usuarioModelo extends mainModel {
             $data['direccion'],
             $data['email'], 
             $data['usuario'], 
-            password_hash($data['clave'], PASSWORD_DEFAULT), 
+            $data['clave'],
             $data['estado'],
             $data['privilegio'], 
         ];

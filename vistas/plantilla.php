@@ -19,7 +19,7 @@
 		if($vistas =="login" || $vistas =="404"){
 			require_once "./vistas/contenidos/".$vistas."-view.php";
 		}else{
-
+			session_start(['name'=>'SISPRES']);
 	?>
 	<!-- Main container -->
 	<main class="full-box main-container">

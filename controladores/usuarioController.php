@@ -92,6 +92,8 @@ class usuarioController extends usuarioModelo {
                 "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
                 "Tipo" => "error",
             ];
+            echo json_encode($alerta);
+            exit();
         }
 
         //VERIFICAR DIRECCION
@@ -102,36 +104,54 @@ class usuarioController extends usuarioModelo {
                 "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
                 "Tipo" => "error",
             ];
+            echo json_encode($alerta);
+            exit();
         }
 
         //VERIFICAR USUARIO
-        if (mainModel::verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{5-10}",$usuario)){
+        if (mainModel::verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{5,30}",$usuario)){
             $alerta=[
                 "Alerta" => "simple",
                 "Titulo" => "ERROR INESPERADO EN EL USUARIO",
                 "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
                 "Tipo" => "error",
             ];
+            echo json_encode($alerta);
+            exit();
         }
 
         //VERIFICAR EMAIL
-        if (mainModel::verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{5-10}",$email)){
-            $alerta=[
-                "Alerta" => "simple",
-                "Titulo" => "ERROR INESPERADO EN EL EMAIL",
-                "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
-                "Tipo" => "error",
-            ];
-        }
+        // if (mainModel::verificar_datos("[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]{5,30}",$email)){
+        //     $alerta=[
+        //         "Alerta" => "simple",
+        //         "Titulo" => "ERROR INESPERADO EN EL EMAIL",
+        //         "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
+        //         "Tipo" => "error",
+        //     ];
+        //     echo json_encode($alerta);
+        //     exit();
+        // }
 
         //VERIFICAR CLAVE
-        if (mainModel::verificar_datos("[a-zA-Z0-9$@.-]{5-10}",$clave1)){
+        if (mainModel::verificar_datos("[a-zA-Z0-9$@.-]{5,30}",$clave1)){
             $alerta=[
                 "Alerta" => "simple",
                 "Titulo" => "ERROR INESPERADO EN EL EMAIL",
                 "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
                 "Tipo" => "error",
             ];
+            echo json_encode($alerta);
+            exit();
+        }
+        if (mainModel::verificar_datos("[a-zA-Z0-9$@.-]{5,30}",$clave2)){
+            $alerta=[
+                "Alerta" => "simple",
+                "Titulo" => "ERROR INESPERADO EN EL EMAIL",
+                "Texto" => "los datos ingresados deben cumplir los requisitos solicitados",
+                "Tipo" => "error",
+            ];
+            echo json_encode($alerta);
+            exit();
         }
         
         if ($clave1!==$clave2){
@@ -143,6 +163,8 @@ class usuarioController extends usuarioModelo {
             ];
             echo json_encode($alerta);
             exit();
+        }else{
+            $clave = mainModel::encryption($clave1); 
         }
         
         //GUARDAR DATOS EN UN ARRAY
@@ -154,7 +176,7 @@ class usuarioController extends usuarioModelo {
             "direccion" => $direccion,
             "email" => $email,
             "usuario" => $usuario,
-            "clave" => $clave1,
+            "clave" => $clave,
             "estado" => $estado,            
             "privilegio" => $privilegio
         ];
@@ -169,6 +191,7 @@ class usuarioController extends usuarioModelo {
                 "Tipo" => "success",
             ];
             echo json_encode($alerta);
+            exit();
         } else {
             $alerta = [
                 "Alerta" => "simple",
@@ -177,6 +200,7 @@ class usuarioController extends usuarioModelo {
                 "Tipo" => "error",
             ];
             echo json_encode($alerta);
+            exit();
         }
 
 
