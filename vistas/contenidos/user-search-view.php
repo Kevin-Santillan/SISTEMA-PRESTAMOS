@@ -1,3 +1,9 @@
+<?php
+     if ($_SESSION['privilegio_sispres']!=1) {
+        echo $lc->cerrar_sesion_controller();
+        exit();
+    }
+?>
 <!-- Page header -->
 <div class="full-box page-header">
     <h3 class="text-left">

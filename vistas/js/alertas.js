@@ -1,6 +1,9 @@
 
 const formularios_ajax = document.querySelectorAll(".FormularioAjax");
 
+formularios_ajax.forEach(formularios => {
+    formularios.addEventListener("submit",enviar_formulario_ajax);
+});
 
 function enviar_formulario_ajax(e){
     e.preventDefault();
@@ -53,10 +56,6 @@ function enviar_formulario_ajax(e){
     });
 
 }
-
-formularios_ajax.forEach(formularios => {
-    formularios.addEventListener("submit",enviar_formulario_ajax);
-});
 
 function alertas_ajax(alerta) {
     if(alerta.Alerta==="simple"){

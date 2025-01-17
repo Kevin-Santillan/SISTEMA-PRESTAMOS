@@ -82,5 +82,36 @@
 
 
         }
+        public function cerrar_sesion_controller(){
+            session_unset();
+            session_destroy();
+            if(headers_sent()){
+                return "<script>windows.location.href='".SERVERURL."login/'</script>";
+            }else {
+                return header("Location:".SERVERURL."login/");
+            }
+        }
         
+        public function boton_cerrar_sesion(){
+            session_start(['name'=>'SISPRES']);
+            $token = mainModel::decryption($_POST['token']);
+            $usuario = mainModel::decryption($_POST['usuario']);
+
+            if ($token == $_SESSION['token_sispres'] && $usuario == $_SESSION['usuario_sispres']) {
+                session_unset();
+                session_destroy();
+                $alerta = [
+                    "Alerta" => "redireccionar",
+                    "URL" => SERVERURL."login/"
+                ];
+            }else{
+                $alerta=[
+                    "Alerta" => "simple",
+                    "Titulo" => "CERRAR SESION ",
+                    "Texto" => "No se pudo cerrar sesion",
+                    "Tipo" => "error",
+                ];
+            }
+            echo json_encode($alerta);
+        }
     }
